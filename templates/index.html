@@ -5,6 +5,27 @@
         <img src="/static/images/icon-lo.png" class="logo">
     </head>
     <body>
-
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Rating</th>
+                    <th>Game</th>
+                    <th>Comments</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for review in table %}
+                    <tr>
+                        <th>review.id</th>
+                        <th>review.rating</th>
+                        <th>review.game></th>
+                        <th>review.comment</th>
+                        <th>review.date</th>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </body>
 </html>
