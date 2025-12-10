@@ -1,4 +1,10 @@
 head {
     background-color: azure;
+    width: device-width;
+    height: 20%;
+}
 
+.logo {
+    padding: 20px;
+    height: 20%;
 }
