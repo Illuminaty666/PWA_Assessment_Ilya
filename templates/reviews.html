@@ -2,7 +2,13 @@
 <html lang="en">
 <link rel="stylesheet" href="/static/css/main.css">
     <head>
+        <p class="banner">{{game}} Reviews</p>
         <img src="/static/images/icon-lo.png" class="logo">
+        <nav>
+        <div><a href="/">Home page</a></div>
+        <div><a href="/templates/login.html">Add your own review!(login first)</a></div>
+        <div><a href="/templates/register.html">Register your account</a></div>
+        </nav>
     </head>
     <body>
         <table border="1">
@@ -27,7 +33,6 @@
                 {% endfor %}
             </tbody>
         </table>
-        <div><a href="/">Home page</a></div>
-        <div><a href="/templates/login.html">Add your own review!(login first)</a></div>
+        
     </body>
 </html>

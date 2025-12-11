@@ -4,11 +4,6 @@ import sqlite3
 
 app = Flask(__name__)
 
-def getdb():
-    dtb = sqlite3.connect(reviews.db)
-    dtb.row_factory = sqlite3.Row # Allows accessing rows by column name
-    return dtb
-
 @app.route("/")
 def home():
     
@@ -25,8 +20,8 @@ def add():
 
 @app.route("/templates/reviews.html")
 def reviews():
-
-    return render_template("reviews.html")
+    game = 'Hollow Knight'
+    return render_template("reviews.html", game=game)
 
 @app.route("/templates/login.html", methods=["POST"])
 def login():
@@ -38,7 +33,12 @@ def login():
         password = request.form.get('password')
     usertable = db.execute(f"SELECT * from Users WHERE username = ? AND password= ?", (username,password)).fetchone()
 
-    
+
     return render_template("login.html", table=usertable)
+
+@app.route("/templates/register.html")
+def register():
+    return render_template("register.html")
+
 
 app.run(debug=True, port=5000)
