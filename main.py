@@ -36,7 +36,7 @@ def login():
     if request.method == "POST":
         username = request.form.get('username')
         password = request.form.get('password')
-    usertable = db.execute(f"SELECT * from Users WHERE username = username AND password=password", (username,password)).fetchone()
+    usertable = db.execute(f"SELECT * from Users WHERE username = ? AND password= ?", (username,password)).fetchone()
 
     
     return render_template("login.html", table=usertable)
