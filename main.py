@@ -3,7 +3,7 @@ import sqlite3
 
 app = Flask(__name__)
 def fetchdb():
-    db = sqlite3.connect("./database/reviews.db")
+    db = sqlite3.connect(".database/reviews.db")
     db.row_factory = sqlite3.Row
 
     return db
@@ -21,7 +21,9 @@ def add():
 @app.route("/templates/reviews.html")
 def reviews():
     game = 'Hollow Knight'
-    return render_template("reviews.html", game=game)
+    gamereviews = fetchdb()
+    gamereviews = gamereviews.execute("SELECT * from Reviews").fetchall()
+    return render_template("reviews.html", game=game, reviewtable=gamereviews)
 
 @app.route("/templates/login.html")
 def login():
