@@ -20,10 +20,11 @@ table {
 
 a {
     background-color: coral;
-    border-radius: 10%;
-    width: 3cm;
+    border-radius: 10px;
+    width: 5cm;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 10px;
-    font-family: Oxygen;
+    margin: 10%;
 }
 
 .banner {
@@ -32,4 +33,12 @@ a {
     padding: 80px;
     font-family:Arial, Helvetica, sans-serif;
     color: white;
+    text-align: center;
+    font-size: 45px;
+}
+div {
+    display: indent-block;
+}
+p {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }

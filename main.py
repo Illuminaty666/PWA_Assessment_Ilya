@@ -23,7 +23,7 @@ def reviews():
     game = 'Hollow Knight'
     return render_template("reviews.html", game=game)
 
-@app.route("/templates/login.html", methods=["POST"])
+@app.route("/templates/login.html")
 def login():
     db = sqlite3.connect(".database/reviews.db")
     db.row_factory = sqlite3.Row 
@@ -31,7 +31,7 @@ def login():
     if request.method == "POST":
         username = request.form.get('username')
         password = request.form.get('password')
-    usertable = db.execute(f"SELECT * from Users").fetchall()
+    usertable = db.execute(f"SELECT * from Users").fetchall() 
 
 
     return render_template("login.html", table=usertable)
