@@ -8,6 +8,17 @@ def fetchdb():
 
     return db
 
+def login(user,pwd):
+    db = fetchdb()
+
+    un = db.execute("SELECT * FROM Users WHERE username=? COLLATE NOCASE", (user)).fetchone()
+
+    if un != None:
+        if (user['password'], pwd):
+            return un
+        
+    return None
+
 @app.route("/")
 def home():
     
@@ -25,7 +36,7 @@ def reviews():
     gamereviews = gamereviews.execute("SELECT * from Reviews").fetchall()
     return render_template("reviews.html", game=game, reviewtable=gamereviews)
 
-@app.route("/templates/login.html")
+@app.route("/templates/login.html", methods=['GET','POST'])
 def login():
 
     return render_template("login.html")
