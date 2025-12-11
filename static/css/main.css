@@ -1,3 +1,5 @@
+
+
 head {
     background-color: azure;
     width: device-width;
@@ -14,4 +16,11 @@ table {
     border-block-color: rgb(7, 135, 239);
     border-radius: 5%;
     border-color: coral;
+}
+
+a {
+    background-color: coral;
+    border-radius: 10%;
+    width: 3cm;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }

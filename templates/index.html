@@ -2,30 +2,11 @@
 <html lang="en">
 <link rel="stylesheet" href="/static/css/main.css">
     <head>
-        <img src="/static/images/icon-lo.png" class="logo">
+        <img src="/static/images/icon-lo.png" class="logo"> <h1>Welcome to game opinion!</h1>
     </head>
     <body>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>User</th>
-                    <th>Rating</th>
-                    <th>Game</th>
-                    <th>Comments</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for review in table %}
-                    <tr>
-                        <th>{{ review['uid']      }}</th>
-                        <th>{{ review['rating']   }}</th>
-                        <th>{{ review['game']     }}</th>
-                        <th>{{ review['comment']  }}</th>
-                        <th>{{ review['date']     }}</th>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <p>This website lets you submit reviews on games, (but only if logged in), view others' reviews on games via search!</p>
+        <div><a href="/templates/add.html">Add your own review!</a></div>
+        <div><a href="/templates/reviews.html">View others' reviews!</a></div>
     </body>
 </html>
