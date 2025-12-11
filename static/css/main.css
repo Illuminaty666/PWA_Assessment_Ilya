@@ -5,6 +5,13 @@ head {
 }
 
 .logo {
-    padding: 20px;
-    height: 20%;
+    padding: 10px;
+    height: 100px;
+}
+
+table {
+    margin: 50px 100px;
+    border-block-color: rgb(7, 135, 239);
+    border-radius: 5%;
+    border-color: coral;
 }
