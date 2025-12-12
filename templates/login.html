@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="/static/css/main.css">
 <html>
     
-    {% block content %}
+    
     <h1 class="banner" >Please login:</h1>
     <img src="/static/images/icon-lo.png" class="logo">
         
@@ -11,12 +11,12 @@
     <div><a href="/">Home page</a></div><br><br>
     <div><a href="/templates/reviews.html">View others' reviews!</a></div>
         
-    <form action="/login" form="POST">
+    <form action="/templates/login.html" method="POST">
         <label>Username: </label>
-        <input type="text" id="usrname" label="username">
+        <input type="text" id="username" name="username">
         <label>Password: </label>
-        <input type="text" id="pasword" label="password">
+        <input type="password" id="password" name="password">
         <input type="submit" value="Login">
     </form>
-    {% endblock %}
+    
 </html>

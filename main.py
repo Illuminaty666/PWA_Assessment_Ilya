@@ -24,8 +24,8 @@ def reviews():
 def login():
 
     if request.method =='POST':
-        username = request.form['usrname']
-        password = request.form['pasword']
+        username = request.form['username']
+        password = request.form['password']
     
         user = login(username,password)
         if user:
