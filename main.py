@@ -1,24 +1,7 @@
 from flask import Flask, render_template, request, session, redirect
-import sqlite3
-import db
+from db import fetchdb, login
 
 app = Flask(__name__)
-def fetchdb():
-    db = sqlite3.connect(".database/reviews.db")
-    db.row_factory = sqlite3.Row
-
-    return db
-
-def login(user,pwd):
-    db = fetchdb()
-
-    un = db.execute("SELECT * FROM Users WHERE username=? COLLATE NOCASE", (user)).fetchone()
-
-    if un != None:
-        if (user['password'], pwd):
-            return un
-        
-    return None
 
 @app.route("/")
 def home():
@@ -41,15 +24,15 @@ def reviews():
 def login():
 
     if request.method =='POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form['usrname']
+        password = request.form['pasword']
     
-    user = db.login(username,password)
-    if user:
-        session['id'] = user['id']
-        session['username'] = user['username']
+        user = login(username,password)
+        if user:
+           session['id'] = user['id']
+           session['username'] = user['username']
 
-        return redirect("/templates/add.html")
+           return redirect("/templates/add.html")
 
     return render_template("login.html")
 
