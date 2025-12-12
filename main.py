@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect
 import sqlite3
+import db
 
 app = Flask(__name__)
 def fetchdb():
@@ -38,6 +39,17 @@ def reviews():
 
 @app.route("/templates/login.html", methods=['GET','POST'])
 def login():
+
+    if request.method =='POST':
+        username = request.form['username']
+        password = request.form['password']
+    
+    user = db.login(username,password)
+    if user:
+        session['id'] = user['id']
+        session['username'] = user['username']
+
+        return redirect("/templates/add.html")
 
     return render_template("login.html")
 
