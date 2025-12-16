@@ -11,7 +11,7 @@ def home():
 
 @app.route("/templates/add.html", methods=['GET','POST'])
 def add():
-
+    print("In add function")
     if request.method == "POST":
         rating =  request.form['gamerating']
         comment = request.form['gamecomment']

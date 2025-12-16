@@ -28,12 +28,12 @@ def userreg(username, password):
     return True
 
 def addreview(uid,gname,comment,rating):
-    
-    if gname == None or rating < 0 or rating > 100:
+    print("game:" + gname)
+    if gname == None or int(rating) < 0 or int(rating) > 100:
         return False
     now = datetime.now()
     datestr = now.strftime("%d-%m-%y")
     db = fetchdb()
-    db.execute("INSERT INTO Reviews(id,uid, game, rating, comment, date) VALUES(?,?,?,?,?)", (gname,uid,rating,comment,datestr,))
+    db.execute("INSERT INTO Reviews(uid, game, rating, comment, date) VALUES(?,?,?,?,?)", (uid,gname,rating,comment,datestr,))
     db.commit()
     return True
