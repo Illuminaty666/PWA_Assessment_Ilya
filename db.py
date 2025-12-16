@@ -6,13 +6,13 @@ def fetchdb():
 
     return db
 
-def login(user,pwd):
+def loginverify(username,password):
     db = fetchdb()
 
-    un = db.execute("SELECT * FROM Users WHERE username=? COLLATE NOCASE", (user)).fetchone()
+    un = db.execute("SELECT * FROM Users WHERE username=? COLLATE NOCASE", (username,)).fetchall()
 
     if un != None:
-        if (user['password'], pwd):
+        if (un['password'], password):
             return un
         
     return None

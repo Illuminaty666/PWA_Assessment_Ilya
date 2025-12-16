@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, redirect
-from db import fetchdb, login
+from db import fetchdb, loginverify
 
 app = Flask(__name__)
 
@@ -27,7 +27,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
     
-        user = login(username,password)
+        user = loginverify(username,password)
         if user:
            session['id'] = user['id']
            session['username'] = user['username']
