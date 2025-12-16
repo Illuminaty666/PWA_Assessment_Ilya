@@ -1,17 +1,27 @@
 from flask import Flask, render_template, request, session, redirect
-from db import fetchdb, loginverify, userreg
+from db import fetchdb, loginverify, userreg, addreview
 
 app = Flask(__name__)
+app.secret_key = "gmreview"
 
 @app.route("/")
 def home():
     
     return render_template("index.html")
 
-@app.route("/templates/add.html")
+@app.route("/templates/add.html", methods=['GET','POST'])
 def add():
 
+    if request.method == "POST":
+        rating =  request.form['gamerating']
+        comment = request.form['gamecomment']
+        gname = request.form['gamename']
+        user_id = session['id']
+
+        if addreview(user_id,gname,comment,rating):
+            return redirect("/templates/reviews.html")
     return render_template("add.html")
+    
 
 @app.route("/templates/reviews.html")
 def reviews():
