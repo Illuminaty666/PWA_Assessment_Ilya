@@ -16,3 +16,12 @@ def loginverify(username,password):
             return un
         
     return None
+
+def userreg(username, password):
+    if username == None or password == None:
+        return False
+    
+    db = fetchdb()
+    db.execute("INSERT INTO Users(username,password) VALUES(?,?)", (username,password,))
+    db.commit()
+    return True

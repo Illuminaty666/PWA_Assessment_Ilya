@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, redirect
-from db import fetchdb, loginverify
+from db import fetchdb, loginverify, userreg
 
 app = Flask(__name__)
 
@@ -36,8 +36,15 @@ def login():
 
     return render_template("login.html")
 
-@app.route("/templates/register.html")
+@app.route("/templates/register.html", methods=["GET","POST"])
 def register():
+
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+
+        if userreg(username,password):
+            return redirect("/templates/login.html")
 
     return render_template("register.html")
 

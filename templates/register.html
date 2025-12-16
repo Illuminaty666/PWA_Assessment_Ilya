@@ -4,7 +4,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 <html>
     <h1 class="banner">Register your account</h1>
-    
+    <h2>Register</h2>
+    <form action="/register" method="post">
+        <label>Username: </label>
+        <input type="text" id="username" name="username">
+        <label>Password: </label>
+        <input type="password" id="password" name="password">
+        <input type="submit" value="Register">
+    </form>
     <div><a href="/">Home Page</a></div><br><br>
     <div><a href="/templates/reviews.html">View others' reviews!</a></div><br><br>
     <div><a href="/templates/login.html">Write your own review!(login first)</a></div>
