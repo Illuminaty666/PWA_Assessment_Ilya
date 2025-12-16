@@ -18,7 +18,7 @@ def reviews():
     game = 'Hollow Knight'
     gamereviews = fetchdb()
     gamereviews = gamereviews.execute("SELECT * from Reviews").fetchall()
-    return render_template("reviews.html", game=game, reviewtable=gamereviews)
+    return render_template("reviews.html", reviewtable=gamereviews)
 
 @app.route("/templates/login.html", methods=['GET','POST'])
 def login():

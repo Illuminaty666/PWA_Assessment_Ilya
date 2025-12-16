@@ -15,15 +15,17 @@ head {
 
 table {
     margin: 50px 20px;
-    border-radius: 10%;
-    border-color: coral;
+    border-radius: 10px;
+    border-color: black;
+    border-block-width: 5px;
     border: 5px;
-    border-style: groove;
+    border-style:double;
     font-family:Arial, Helvetica, sans-serif;
+    background-color:coral;
 }
 
 a {
-    background-color: coral;
+    background-color:rgba(255, 238, 0, 0.757);
     border-radius: 10px;
     width: 5cm;
     font-family: 'Audiowide';
